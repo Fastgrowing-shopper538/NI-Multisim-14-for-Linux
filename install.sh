@@ -212,7 +212,7 @@ install_wine_suse() {
   remove_conflicting_packages
   sudo zypper install -y wine winetricks
 
-  bash forceClosewinedbg.sh &
+  bash ../forceClosewinedbg.sh &
 }
 
 # ──────────────────────────────────────────────
