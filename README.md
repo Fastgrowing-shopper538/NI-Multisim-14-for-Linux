@@ -125,6 +125,7 @@ Asks for system reboot, essential for the later functioning of the application.
 
 - **Arch Linux users** are prompted whether to use Chaotic AUR (fast, pre-built) or compile from AUR (slow). Chaotic AUR is strongly recommended.
 - **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely fail and you'll need to remove that package manually before re-executing the script
+- **OpenSUSE users** will have their Wine continuosely try to open winedbg (which halts every wine/winetricks operation). The script `forceClosewinedbg.sh` has been included to automatically kill a winedbg instance every time it opens, so that the users doesn't have to do it themselves. After rebooting, the script will stop running and thus when trying to open Multisim a winedbg will appear; just close the window and you will have no issues running the program.
 - The Wine prefix is stored at `~/.multisim32` and is completely separate from any existing Wine setup you may have.
 - A **system reboot** is recommended after installation.
 - If Multisim does not appear in your application launcher after install, try running:
