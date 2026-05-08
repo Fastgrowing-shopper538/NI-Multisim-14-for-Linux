@@ -190,7 +190,13 @@ install_wine_fedora() {
   fi
 
   remove_conflicting_packages
-  sudo dnf install -y wine winetricks
+  
+  sudo dnf remove -y 'wine*'
+  sudo dnf install -y --allowerasing wine wine-core.i686 cabextract
+
+  wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+  chmod +x winetricks
+  sudo mv winetricks /usr/local/bin/
 }
 
 install_wine_suse() {
@@ -201,22 +207,12 @@ install_wine_suse() {
     . /etc/os-release
     echo "$VERSION_ID"
   )
-  read -p "Add the openSUSE Emulators OBS repo for latest Wine? (recommended) [Y/N]: " obs_choice
-  if [[ "$obs_choice" =~ ^[Yy]$ ]]; then
-    if [[ "$DISTRO_ID" == *"tumbleweed"* ]]; then
-      sudo zypper addrepo -f \
-        https://download.opensuse.org/repositories/Emulators/openSUSE_Tumbleweed/Emulators.repo \
-        emulators || true
-    else
-      sudo zypper addrepo -f \
-        "https://download.opensuse.org/repositories/Emulators/openSUSE_Leap_${SUSE_VER}/Emulators.repo" \
-        emulators || true
-    fi
-    sudo zypper --gpg-auto-import-keys refresh
-  fi
-
+  #read -p "Add the openSUSE Emulators OBS repo for latest Wine? (recommended) [Y/N]: " obs_choice
+  
   remove_conflicting_packages
   sudo zypper install -y wine winetricks
+
+  bash forceClosewinedbg.sh &
 }
 
 # ──────────────────────────────────────────────
