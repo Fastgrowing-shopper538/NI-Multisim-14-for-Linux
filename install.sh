@@ -140,6 +140,7 @@ install_wine_arch() {
       sudo pacman -Syu --noconfirm
     else
       echo "Skipping system update."
+      sudo pacman -Sy
     fi
 
     remove_conflicting_packages
@@ -158,6 +159,8 @@ install_wine_arch() {
     remove_conflicting_packages
     yay -S --noconfirm wine-stable
   fi
+
+  sudo pacman -S --noconfirm cabextract
 }
 
 install_wine_debian() {
