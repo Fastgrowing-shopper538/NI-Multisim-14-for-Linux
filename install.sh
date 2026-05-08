@@ -1,6 +1,6 @@
 #!/bin/bash
 # Automated Multisim 14.0 installer
-# Author: Giovanni De Rosa, Lorenzo Pappalardo
+# Authors: Giovanni De Rosa, Lorenzo Pappalardo
 # Description: Installs Wine, sets up 32-bit prefix, and installs Multisim 14.0
 # Supports: Arch Linux, Debian/Ubuntu/Mint, Fedora, openSUSE
 
