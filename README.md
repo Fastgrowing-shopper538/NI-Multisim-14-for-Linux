@@ -1,4 +1,6 @@
 # 🔌 NI Multisim 14.0 Linux Installer
+![Supported OS: Linux](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)
+![Bash](https://img.shields.io/badge/Language-Bash-blue.svg)
 > Automated installer for **NI Multisim 14.0** on Linux via Wine.
 
 Built for the redpilled breed of engineers and students who rely on NI Multisim every day but run Linux as their primary OS. This repository provides the tools, tweaks, and compatibility setup needed to make Multisim usable on a Linux daily-driver environment without the usual headaches.
