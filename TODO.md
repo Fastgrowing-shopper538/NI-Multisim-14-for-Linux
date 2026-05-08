@@ -47,9 +47,9 @@ sudo rm -rf multisim_installer NI_Circuit_Design_Suite_14_0.zip
 ```
 
 
-- fix the ubuntu .desktop problem
+- ~~fix the ubuntu .desktop problem~~
 - add do you want to reboot prompt
-- fix fedora's problem with wine64
+- ~~fix fedora's problem with wine64~~
 - merge the ubuntu fedora wine installations
 - add if statement for ubuntu's creation of the 32bit prefix
 - ~~and tryout suse~~
