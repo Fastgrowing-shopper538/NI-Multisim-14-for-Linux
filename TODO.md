@@ -52,4 +52,4 @@ sudo rm -rf multisim_installer NI_Circuit_Design_Suite_14_0.zip
 - fix fedora's problem with wine64
 - merge the ubuntu fedora wine installations
 - add if statement for ubuntu's creation of the 32bit prefix
-- and tryout suse
+- ~~and tryout suse~~
