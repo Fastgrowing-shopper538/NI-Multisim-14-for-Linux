@@ -1,4 +1,4 @@
-# 🔌 NI Multisim 14.0 Linux Installer
+#  NI Multisim 14.0 Linux Installer
 ![Supported OS: Linux](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)
 ![Bash](https://img.shields.io/badge/Language-Bash-blue.svg)
 > Automated installer for **NI Multisim 14.0** on Linux via Wine.
@@ -25,7 +25,13 @@ Built for the redpilled breed of engineers and students who rely on NI Multisim 
 
 This bash script automates the full process of installing **NI Circuit Design Suite 14.0 (Multisim)** on Linux. It handles Wine installation, a dedicated 32-bit Wine prefix, dependency setup, and the Multisim installer execution — all in a single run across all supported distros.
 
+### Why?
+Why this version? Multisim 14.0 is the newest version that works reliably on Linux with minimal issues while still including most of the features available in Multisim 14.3.
+If you want to know more about the latest version check this blog right here: https://lina.moe/MultiSIM.md
+
 ---
+
+
 
 ## Supported Distributions
 
@@ -49,8 +55,8 @@ This bash script automates the full process of installing **NI Circuit Design Su
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/multisim-linux-installer.git
-cd multisim-linux-installer
+git clone https://github.com/ghepardoman/NI-Multisim-14-for-Linux.git
+cd NI-Multisim-14-for-Linux
 ```
 
 ### 2. Make the script executable
@@ -134,3 +140,4 @@ This project is released for educational and personal use. NI Multisim is propri
 
 ## 📌 Nota di presentazione
 Capolavoro presentato da Giovanni De Rosa e Lorenzo Pappalardo sulla Piattaforma Unica – DD MM 2026.
+
