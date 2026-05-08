@@ -44,6 +44,7 @@ This bash script automates the full process of installing **NI Circuit Design Su
 - `sudo` privileges
 - Active internet connection (the script downloads Wine, winetricks, and Multisim ~1.5 GB)
 - `wget`, `unzip` available on your system
+*(some dependencies may be automatically installed)*
 
 ---
 
@@ -135,7 +136,7 @@ Removes the downloaded ZIP and extracted installer directory.
 ## Notes & Known Issues
 
 - **Arch Linux users** are prompted whether to use Chaotic AUR (fast, pre-built) or compile from AUR (slow). Chaotic AUR is strongly recommended.
-- **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely and you'll need to remove that package manually before re-executing the script
+- **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely fail and you'll need to remove that package manually before re-executing the script
 - **Fedora users** are prompted to enable RPM Fusion repositories, which provide a compatible Wine build.
 - The Wine prefix is stored at `~/.multisim32` and is completely separate from any existing Wine setup you may have.
 - A **system reboot** is recommended after installation.
