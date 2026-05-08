@@ -215,7 +215,12 @@ install_wine_suse() {
   remove_conflicting_packages
   sudo zypper install -y wine winetricks
 
-  bash ../forceClosewinedbg.sh &
+  # Get the directory where THIS script is located
+  SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+  
+  # Execute the other script located in the same directory
+  sudo chmod +x "$SCRIPT_DIR/forceClosewinedbg.sh"
+  bash "$SCRIPT_DIR/forceClosewinedbg.sh" &
 }
 
 # ──────────────────────────────────────────────
