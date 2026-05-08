@@ -44,6 +44,7 @@ This bash script automates the full process of installing **NI Circuit Design Su
 - `sudo` privileges
 - Active internet connection (the script downloads Wine, winetricks, and Multisim ~1.5 GB)
 - `wget`, `unzip` available on your system
+
 *(some dependencies may be automatically installed)*
 
 ---
@@ -84,7 +85,7 @@ chmod +x install_multisim.sh
 ### 3. Run the installer
 
 ```bash
-./install_multisim.sh
+./install.sh
 ```
 
 > ⚠️ **Do not run as root.** The script uses `sudo` internally where needed.
