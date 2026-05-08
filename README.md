@@ -29,10 +29,10 @@ This bash script automates the full process of installing **NI Circuit Design Su
 
 | Distribution Family | Tested Distros |
 |---|---|
-| 🔵 Arch Linux | Arch, Manjaro, EndeavourOS |
-| 🟠 Debian / Ubuntu | Debian, Ubuntu, Linux Mint |
-| 🔴 Fedora / RHEL | Fedora, CentOS |
-| 🟢 openSUSE | openSUSE Leap, Tumbleweed |
+| 🔵 Arch Linux | Arch |
+| 🟠 Debian / Ubuntu | Ubuntu |
+| 🔴 Fedora / RHEL | Fedora |
+| 🟢 openSUSE | openSUSE Tumbleweed |
 
 ---
 
