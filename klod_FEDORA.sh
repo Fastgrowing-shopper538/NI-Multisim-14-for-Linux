@@ -212,7 +212,7 @@ install_wine_fedora() {
     fi
 
     sudo dnf remove -y 'wine*'
-    sudo dnf install -y --allowerasing wine.i686 wine-core.i686 cabextract
+    sudo dnf install -y --allowerasing wine wine-core.i686 cabextract
 
     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
     chmod +x winetricks
@@ -270,10 +270,10 @@ ensure_winetricks
 # ──────────────────────────────────────────────
 echo
 echo "Creating 32-bit Wine prefix for Multisim..."
-WINEARCH=win32 WINEPREFIX=~/.multisim32 winecfg -v winxp || true
+WINEARCH=win32 WINEPREFIX=~/.multisim32 wine32 winecfg -v winxp || true
 
 echo "Installing core Wine dependencies (corefonts, mdac27, jet40)..."
-WINEPREFIX=~/.multisim32 winetricks -q corefonts mdac27 jet40
+WINE=wine32 WINEARCH=win32 WINEPREFIX=$HOME/.multisim32 winetricks -q corefonts mdac27 jet40
 
 # ──────────────────────────────────────────────
 # DOWNLOAD & INSTALL MULTISIM 14.0
@@ -287,10 +287,25 @@ echo "Unzipping Multisim installer..."
 unzip -q NI_Circuit_Design_Suite_14_0.zip -d multisim_installer
 cd multisim_installer/
 
-WINEPREFIX=~/.multisim32 winecfg -v winxp || true
+WINEPREFIX=~/.multisim32 wine32 winecfg -v winxp || true
 
 echo "Running Multisim installer via Wine..."
-WINEPREFIX=~/.multisim32 wine setup.exe
+WINEPREFIX=~/.multisim32 wine32 setup.exe
+
+rm $HOME/.local/share/applications/wine/Programs/National\ Instruments/Circuit\ Design\ Suite\ 14.0/Multisim\ 14.0.desktop
+rm $HOME/.local/share/applications/wine/Programs/NI\ Multisim\ 14.0.desktop
+
+mkdir -p "$HOME/.local/share/applications/wine/Programs/National Instruments/Circuit Design Suite 14.0"
+
+cat > "$HOME/.local/share/applications/wine/Programs/National Instruments/Circuit Design Suite 14.0/Multisim 14.0.desktop" << 'EOF'
+[Desktop Entry]
+Name=Multisim 14.0
+Exec=sh -c 'WINEPREFIX="$HOME/.multisim32" wine32 "$HOME/.multisim32/drive_c/Program Files/National Instruments/Circuit Design Suite 14.0/multisim.exe"'
+Type=Application
+StartupNotify=true
+Icon=B012_NewShortcut1_B7E20C58D0FF4465833FB4FABCF7AC67.0
+StartupWMClass=multisim.exe
+EOF
 
 # ──────────────────────────────────────────────
 # CLEANUP
