@@ -294,7 +294,7 @@ if [[ "$DISTRO_FAMILY" == "debian" || "$DISTRO_FAMILY" == "fedora" ]]; then
     echo "Debian-based/RHEL-based distro detected. Fixing desktop launcher..."
 
     DESKTOP_FILE="$HOME/.local/share/applications/wine/Programs/National Instruments/Circuit Design Suite 14.0/Multisim 14.0.desktop"
-    OTHER_FILE="$HOME/.local/share/applications/wine/Programs/NI Multisim 14.0.desktop"
+    OTHER_FILE="$HOME/.local/share/applications/wine/Programs/NI\ Multisim\ 14.0.desktop"
 
     if [ -f "$DESKTOP_FILE" ]; then
 
