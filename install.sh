@@ -312,6 +312,8 @@ if [[ "$DISTRO_FAMILY" == "debian" || "$DISTRO_FAMILY" == "fedora" ]]; then
     if [ -f "$OTHER_FILE" ]; then
 
       rm $OTHER_FILE
+      update-desktop-database ~/.local/share/applications || true
+      
     fi
   #fi
 
