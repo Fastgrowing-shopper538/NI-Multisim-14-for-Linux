@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Multisim 14.0
-Exec=sh -c 'WINEPREFIX="$HOME/.multisim32" wine32 "$HOME/.multisim32/drive_c/Program Files/National Instruments/Circuit Design Suite 14.0/multisim.exe"'
-Type=Application
-StartupNotify=true
-Icon=B012_NewShortcut1_B7E20C58D0FF4465833FB4FABCF7AC67.0
-StartupWMClass=multisim.exe
