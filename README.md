@@ -56,7 +56,7 @@ This bash script automates the full process of installing **NI Circuit Design Su
 │  3. Install Wine for your distro                    │
 │  4. Install winetricks                              │
 │  5. Create isolated 32-bit Wine prefix              │
-│  6. Install Wine dependencies (corefonts, MDAC…)   │
+│  6. Install Wine dependencies (corefonts, MDAC…)    │
 │  7. Download & run the Multisim 14.0 installer      │
 │  8. Fix the desktop launcher entry                  │
 │  9. Clean up temporary files                        │
@@ -135,6 +135,7 @@ Removes the downloaded ZIP and extracted installer directory.
 ## Notes & Known Issues
 
 - **Arch Linux users** are prompted whether to use Chaotic AUR (fast, pre-built) or compile from AUR (slow). Chaotic AUR is strongly recommended.
+- **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely and you'll need to remove that package manually before re-executing the script
 - **Fedora users** are prompted to enable RPM Fusion repositories, which provide a compatible Wine build.
 - The Wine prefix is stored at `~/.multisim32` and is completely separate from any existing Wine setup you may have.
 - A **system reboot** is recommended after installation.
