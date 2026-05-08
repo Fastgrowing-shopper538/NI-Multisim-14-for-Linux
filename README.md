@@ -54,13 +54,13 @@ cd multisim-linux-installer
 ### 2. Make the script executable
 
 ```bash
-chmod +x install_multisim.sh
+chmod +x install.sh
 ```
 
 ### 3. Run the installer
 
 ```bash
-./install_multisim.sh
+./install.sh
 ```
 
 > ⚠️ **Do not run as root.** The script uses `sudo` internally where needed.
@@ -116,6 +116,7 @@ Asks for system reboot, essential for the later functioning of the application.
 ## Notes & Known Issues
 
 - **Arch Linux users** are prompted whether to use Chaotic AUR (fast, pre-built) or compile from AUR (slow). Chaotic AUR is strongly recommended.
+- **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely fail and you'll need to remove that package manually before re-executing the script
 - The Wine prefix is stored at `~/.multisim32` and is completely separate from any existing Wine setup you may have.
 - A **system reboot** is recommended after installation.
 - If Multisim does not appear in your application launcher after install, try running:
