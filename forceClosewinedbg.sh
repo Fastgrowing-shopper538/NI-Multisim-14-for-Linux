@@ -13,3 +13,4 @@ do
     # Wait 1 second before the next check to save CPU cycles
     sleep 1
 done
+#little blud loxor needs to stop commiting he aint working a 9 to 5
