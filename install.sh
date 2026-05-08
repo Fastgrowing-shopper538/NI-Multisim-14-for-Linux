@@ -160,7 +160,7 @@ install_wine_arch() {
     yay -S --noconfirm wine-stable
   fi
 
-  sudo pacman -S --noconfirm cabextract
+  sudo pacman -S --noconfirm cabextract unzip
 }
 
 install_wine_debian() {
