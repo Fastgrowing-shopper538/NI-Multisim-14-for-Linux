@@ -79,7 +79,7 @@ cd multisim-linux-installer
 ### 2. Make the script executable
 
 ```bash
-chmod +x install_multisim.sh
+chmod +x install.sh
 ```
 
 ### 3. Run the installer
