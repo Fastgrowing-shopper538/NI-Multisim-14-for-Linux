@@ -1,311 +1,50 @@
 # NI-Multisim-14-for-Linux
 Built for the redpilled breed of engineers and students who rely on NI Multisim every day but run Linux as their primary OS. This repository provides the tools, tweaks, and compatibility setup needed to make Multisim usable on a Linux daily-driver environment without the usual headaches.
 
-# Multisim 14.0 Linux Installer
+# ⚡ Automated Multisim 14.0 Installer for Linux
 
-A cross-distro automated installer for **NI Multisim 14.0** using Wine.
+![Supported OS: Linux](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)
+![Bash](https://img.shields.io/badge/Language-Bash-blue.svg)
 
-Supports:
+A robust, automated Bash script to seamlessly install **NI Multisim 14.0** on various Linux distributions using Wine.
 
-- Arch Linux
-- Debian / Ubuntu / Linux Mint
-- Fedora
-- openSUSE
+**Authors:** Giovanni De Rosa, Lorenzo Pappalardo
 
 ---
 
-# Features
+## 🚀 Overview
 
-- Automatic Linux distro detection
-- Wine installation and configuration
-- Automatic 32-bit Wine prefix creation
-- Installs required Winetricks dependencies
-- Downloads and installs Multisim 14.0 automatically
-- Fixes desktop launcher integration
-- Cleans up installation files after install
-- Optional reboot prompt
+Running Windows-native engineering software like NI Multisim on Linux typically requires tedious manual configuration of Wine, dependencies, and architecture settings. 
 
----
+This script automates the entire process end-to-end. It detects your Linux distribution, resolves Wine package conflicts, configures a clean 32-bit Wine environment, installs necessary Windows libraries, and executes the official Multisim 14.0 installer.
 
-# Supported Distributions
-
-| Distribution | Status |
-|--------------|--------|
-| Arch Linux | ✅ |
-| Ubuntu | ✅ |
-| Debian | ✅ |
-| Linux Mint | ✅ |
-| Fedora | ✅ |
-| openSUSE | ✅ |
+### ✨ Features
+* **Intelligent Distro Detection:** Automatically adapts the installation method based on your OS.
+* **Conflict Resolution:** Detects and removes broken or conflicting Wine packages before installation.
+* **Isolated Environment:** Creates a dedicated 32-bit Wine prefix (`~/.multisim32`) ensuring it doesn't break your other Wine applications.
+* **Dependency Management:** Automatically fetches and installs required Windows components (`corefonts`, `mdac27`, `jet40`) via `winetricks`.
+* **Desktop Integration:** Automatically fixes the `.desktop` launcher so you can start Multisim right from your app menu.
+* **Auto-Cleanup:** Removes heavy installation zips and extracted folders once finished.
 
 ---
 
-# Requirements
+## 🐧 Supported Distributions
 
-Before running the installer, ensure you have:
-
-- Internet connection
-- `sudo` privileges
-- Bash shell
-- At least 10 GB free disk space
+This script natively supports and has been tested on the following distribution families:
+* 🟢 **Arch Linux** (Includes EndeavourOS, Manjaro, etc. Features optional Chaotic AUR integration for faster installs).
+* 🔴 **Debian Family** (Debian, Ubuntu, Linux Mint, Pop!_OS).
+* 🔵 **Fedora** (Includes optional RPM Fusion setup).
+* 🦎 **openSUSE** (Leap & Tumbleweed).
 
 ---
 
-# Installation
+## 🛠️ Usage Instructions
 
-## Clone Repository
-
+### 1. Download the script
+Clone this repository or download the script directly to your local machine:
 ```bash
-git clone https://github.com/yourusername/multisim-linux-installer.git
+git clone [https://github.com/YOUR-USERNAME/multisim-linux-installer.git](https://github.com/YOUR-USERNAME/multisim-linux-installer.git)
 cd multisim-linux-installer
-```
-
-## Make Script Executable
-
-```bash
-chmod +x install_multisim.sh
-```
-
-## Run Installer
-
-```bash
-./install_multisim.sh
-```
-
----
-
-# What the Script Does
-
-## 1. Detects Your Linux Distribution
-
-The installer automatically identifies your distro family:
-
-- Arch-based
-- Debian-based
-- Fedora-based
-- openSUSE
-
----
-
-## 2. Removes Conflicting Wine Packages
-
-The script removes potentially conflicting Wine installations before proceeding.
-
-Examples:
-
-```bash
-wine
-wine32
-wine64
-winetricks
-wine-gecko
-wine-mono
-```
-
----
-
-## 3. Installs Wine
-
-### Arch Linux
-
-Options:
-
-- Install `wine-stable` from Chaotic AUR
-- Compile from AUR using `yay`
-
-### Debian / Ubuntu / Mint
-
-Installs:
-
-```bash
-wine
-wine32
-wine64
-libwine
-winetricks
-```
-
-### Fedora
-
-- Optional RPM Fusion setup
-- Wine + 32-bit support installation
-
-### openSUSE
-
-Installs Wine directly through `zypper`
-
----
-
-# Wine Prefix Configuration
-
-The installer creates a dedicated 32-bit Wine environment:
-
-```bash
-WINEPREFIX="$HOME/.multisim32"
-WINEARCH=win32
-```
-
-Windows version is configured as:
-
-```text
-Windows XP
-```
-
----
-
-# Winetricks Dependencies
-
-The following components are installed automatically:
-
-```bash
-corefonts
-mdac27
-jet40
-```
-
-These are required for Multisim compatibility.
-
----
-
-# Automatic Multisim Download
-
-The installer downloads:
-
-```text
-NI_Circuit_Design_Suite_14_0.zip
-```
-
-Directly from National Instruments servers.
-
----
-
-# Installation Process
-
-The installer:
-
-1. Downloads Multisim
-2. Extracts installer files
-3. Launches setup through Wine
-4. Waits for completion
-5. Stops Wine services
-6. Fixes desktop launcher entries
-
----
-
-# Desktop Launcher Fix
-
-For Debian/Fedora systems, the script automatically fixes:
-
-```text
-~/.local/share/applications/
-```
-
-So Multisim launches with the correct Wine prefix.
-
----
-
-# Cleanup
-
-Temporary installation files are removed automatically:
-
-```bash
-multisim_installer/
-NI_Circuit_Design_Suite_14_0.zip
-```
-
----
-
-# Final Step
-
-At the end of installation:
-
-- A reboot is recommended
-- Optional automatic restart prompt appears
-
----
-
-# Example Output
-
-```text
-=======================================
-✅ Multisim 14.0 installation complete!
-A reboot of your machine is recommended
-=======================================
-```
-
----
-
-# Repository Structure
-
-```text
-.
-├── install_multisim.sh
-├── README.md
-└── LICENSE
-```
-
----
-
-# Notes
-
-- Multisim 14.0 is a Windows application and runs through Wine.
-- Compatibility may vary depending on distro version and GPU drivers.
-- Wayland users may experience graphical issues; X11 is recommended.
-
----
-
-# Troubleshooting
-
-## Wine Crashes
-
-Try:
-
-```bash
-wineserver -k
-```
-
-Then rerun Multisim.
-
----
-
-## Missing Fonts or UI Issues
-
-Reinstall Winetricks dependencies:
-
-```bash
-winetricks corefonts mdac27 jet40
-```
-
----
-
-## Launcher Not Working
-
-Run manually:
-
-```bash
-WINEPREFIX="$HOME/.multisim32" wine Multisim.exe
-```
-
----
-
-# Authors
-
-- Giovanni De Rosa
-- Lorenzo Pappalardo
-
----
-
-# License
-
-This project is distributed under the MIT License.
-
----
-
-# Disclaimer
-
-NI Multisim is proprietary software owned by National Instruments.
-
-This installer only automates the setup process on Linux systems and does not distribute Multisim itself.
 
 
 # 📌 Nota di presentazione
