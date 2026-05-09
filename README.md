@@ -14,7 +14,6 @@ Built for the redpilled breed of engineers and students who rely on NI Multisim 
 - [Overview](#overview)
 - [Supported Distributions](#supported-distributions)
 - [Prerequisites](#prerequisites)
-- [How It Works](#how-it-works)
 - [Usage](#usage)
 - [How it works (What the Script Does)](#how-it-works-what-the-script-does)
 - [Notes & Known Issues](#notes--known-issues)
