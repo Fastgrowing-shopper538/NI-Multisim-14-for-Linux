@@ -16,7 +16,7 @@ Built for the redpilled breed of engineers and students who rely on NI Multisim 
 - [Prerequisites](#prerequisites)
 - [How It Works](#how-it-works)
 - [Usage](#usage)
-- [Installation Steps (What the Script Does)](#installation-steps-what-the-script-does)
+- [How it works (What the Script Does](#how-it-works-what-the-script-does)
 - [Notes & Known Issues](#notes--known-issues)
 
 ---
