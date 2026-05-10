@@ -26,7 +26,7 @@ This bash script automates the full process of installing **NI Circuit Design Su
 
 ### Why?
 Why this version? Multisim 14.0 is the newest version that works reliably on Linux with minimal issues while still including most of the features available in Multisim 14.3.
-If you want to know more about the latest version check this blog right here: https://lina.moe/MultiSIM.md
+If you want to know more about the latest version check out this blog right here: https://lina.moe/MultiSIM.md
 
 ---
 
