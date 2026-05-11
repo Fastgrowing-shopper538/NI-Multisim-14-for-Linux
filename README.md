@@ -1,4 +1,4 @@
-#  NI Multisim 14.0 Linux Installer
+<img src="assets/images/banner.png" alt="MULTISIM" />
 ![Supported OS: Linux](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)
 ![Bash](https://img.shields.io/badge/Language-Bash-blue.svg)
 > Automated installer for **NI Multisim 14.0** on Linux via Wine.
